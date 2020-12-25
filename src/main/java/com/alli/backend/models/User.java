@@ -22,14 +22,12 @@ public class User {
 
     private String password;
 
-    @Builder.Default
+//    @Builder.Default
     private UserRole userRole = UserRole.USER;
 
-    @Builder.Default
-    private Boolean locked = false;
+    public User(){
 
-    @Builder.Default
-    private Boolean enabled = false;
+    }
 
     public User(String firstname, String lastname, String email, String password) {
         this.firstname = firstname;
@@ -37,4 +35,13 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+    public User(String firstname, String lastname, String email, String password, UserRole userRole) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.userRole = userRole;
+    }
+
 }
