@@ -1,47 +1,43 @@
 package com.alli.backend.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Document(collection = "users")
 public class User {
 
     @Id
     private String id;
 
+    private String username;
+
+    private String password;
+
     private String firstname;
 
     private String lastname;
 
-    @Indexed(unique = true)
+    @Field(name = "phone_no")
+    private String phoneNum;
+
+    @Field(name = "phone_no_alt")
+    private String phoneNumAlt;
+
+    @Field(name = "citizen_id")
+    private String citizenId;
+
     private String email;
 
-    private String password;
+    private Role role = Role.USER;
 
-//    @Builder.Default
-    private UserRole userRole = UserRole.USER;
-
-    public User(){
-
-    }
-
-    public User(String firstname, String lastname, String email, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User(String firstname, String lastname, String email, String password, UserRole userRole) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-        this.userRole = userRole;
-    }
+    private String company;
 
 }
