@@ -38,6 +38,8 @@ public class User {
 
     private Role role = Role.USER;
 
+    //Agent Only Var
     private String company;
+    //Location for agent
 
 }
