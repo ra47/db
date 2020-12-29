@@ -9,9 +9,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class BackendApplication {
 
-	@Autowired
-	private UserRepository userRepo;
-
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
 	}

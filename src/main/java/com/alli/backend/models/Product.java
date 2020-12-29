@@ -12,12 +12,6 @@ public class Product {
     @Id
     private String Id;
 
-    private String title;
-
-    private String description;
-
-    private String Budget;
-
     private String company;
 
     @Field(name = "product_name")
