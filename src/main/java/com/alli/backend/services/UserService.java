@@ -31,8 +31,20 @@ public class UserService {
         userRepo.save(user);
     }
 
-    public User findByUsername(String user) {
-        return userRepo.findByUsername(user).orElseThrow(() -> new RuntimeException("User not found"));
+    public boolean checkUsername(String username){
+        return userRepo.findByUsername(username).isEmpty();
+    }
+
+    public boolean checkEmail(String email){
+        return userRepo.findByEmail(email).isEmpty();
+    }
+
+    public boolean checkCitizenId(String citizenId){
+        return userRepo.findByCitizenId(citizenId).isEmpty();
+    }
+
+    public User findByUsername(String username) {
+        return userRepo.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     public List<User> findByRole(Role role) {
