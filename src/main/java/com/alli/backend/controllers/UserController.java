@@ -25,7 +25,7 @@ public class UserController {
 
     //base_url is localhost:8080
 
-    // get all usres
+    // get all users
     // example: {{base_url}}
     //return users List
     @GetMapping("/")
