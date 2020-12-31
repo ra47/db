@@ -41,6 +41,7 @@ public class UserService {
     }
 
     public void register(User user) throws Exception {
+        System.out.println(user.toString());
         if(checkUsername(user.getUsername()) && checkCitizenId(user.getCitizenId()) && checkEmail(user.getEmail())){
             user.setPassword(encoder.encode(user.getPassword()));
             userRepo.save(user);

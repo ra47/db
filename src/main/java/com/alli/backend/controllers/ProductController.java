@@ -33,7 +33,7 @@ public class ProductController {
     }
 
     // get product by id
-    // example: {{base_url}}/product/240560
+    // example: {{base_url}}/product/id/240560
     // return 200 and product object if existed
     // return 404 not found if not existed
     @GetMapping("/id/{id}")

@@ -60,7 +60,7 @@ public class AuthController {
     public ResponseEntity<?> register(@RequestBody User user)  {
         try{
             userService.register(user);
-            return ResponseEntity.ok("success");
+            return ResponseEntity.ok().build();
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
