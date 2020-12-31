@@ -17,11 +17,8 @@ import java.util.List;
 @RestController
 public class UserController {
 
-//    @Autowired
-//    private UserRepository userRepo;
-
     @Autowired
-    private UserService userService;
+    UserService userService;
 
     //base_url is localhost:8080
 
@@ -54,53 +51,5 @@ public class UserController {
     public List<User> getUsersByRole(@PathVariable("role") Role role){
         return userService.findByRole(role);
     }
-
-    // check username duplicate
-    // example: {{base_url}}/validate-user
-    // Expected Body: { "username" : "user1"}
-    // return 200 if username is not duplicated
-    // return 400 if username is duplicated
-    @PostMapping("/validate-user")
-    public ResponseEntity<?> checkDuplicateUsername(@RequestBody User user){
-        return userService.checkUsername(user.getUsername()) ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
-    }
-
-    // check email duplicate
-    // example: {{base_url}}/validate-email
-    // Expected Body: { "email" : "test1@hotmail.com"}
-    // return 200 if email is not duplicated
-    // return 400 if email is duplicated
-    @PostMapping("/validate-email")
-    public ResponseEntity<?> checkDuplicateEmail(@RequestBody User user){
-        return userService.checkEmail(user.getEmail()) ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
-    }
-
-    // check citizen id duplicate
-    // example: {{base_url}}/validate-citizen-id
-    // Expected Body: { "citizenId" : "1234567890123"}
-    // return 200 if citizen id is not duplicated
-    // return 400 if citizen id is duplicated
-    @PostMapping("/validate-citizen-id")
-    public ResponseEntity<?> checkDuplicateCitizenId(@RequestBody User user){
-        return userService.checkCitizenId(user.getCitizenId()) ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
-    }
-
-    //========BELOW THIS WAIT FOR IMPLEMENTATION========
-
-    @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user)  {
-        try{
-            userService.register(user);
-            return ResponseEntity.ok("success");
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody String email,@RequestBody String password){
-        return ResponseEntity.ok().build();
-    }
-
 
 }

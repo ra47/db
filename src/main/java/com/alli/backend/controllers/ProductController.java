@@ -14,7 +14,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    ProductService productService;
 
     // get all products
     // example: {{base_url}}/product/
@@ -36,7 +36,7 @@ public class ProductController {
     // example: {{base_url}}/product/240560
     // return 200 and product object if existed
     // return 404 not found if not existed
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<?> getProductById(@PathVariable String id){
         try{
             Product product = productService.getProductById(id);

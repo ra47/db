@@ -12,5 +12,5 @@ import java.util.stream.Stream;
 public interface ProductRepository extends MongoRepository<Product, String> {
 
     @Query("{productType : ?0 , productRange : ?1}")
-    Stream<Product> fineByProductTypeAndProductRange(String productType, String productRange);
+    Stream<Product> findByProductTypeAndProductRange(String productType, String productRange);
 }

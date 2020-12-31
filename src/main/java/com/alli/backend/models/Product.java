@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Product {
 
     @Id
-    private String Id;
+    private String id;
 
     private String company;
 

@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 public class ProductService {
 
     @Autowired
-    private ProductRepository productRepo;
+    ProductRepository productRepo;
 
     public List<Product> getProducts(){
         return productRepo.findAll();
@@ -21,7 +21,7 @@ public class ProductService {
 
     public List<Product> getFilterProduct(String type, String productRange) {
         List<Product> list = new ArrayList<>();
-        try (Stream<Product> stream = productRepo.fineByProductTypeAndProductRange(type, productRange)) {
+        try (Stream<Product> stream = productRepo.findByProductTypeAndProductRange(type, productRange)) {
             stream.forEach(p -> {
                 list.add(p);
             });
